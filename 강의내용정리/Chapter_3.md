@@ -16,6 +16,9 @@
 
 [3.7. 비트단위 연산자](#7)
 
+[3.8. 비트플래그, 비트마스크](#8)
+
+
 
 
 
@@ -174,3 +177,94 @@
 - `std::bitset<보여줄 비트 수>(정수)` 형태로 사용
 - 10진수를 2진수로 바꾸어 보여준다
 
+  ********
+<div id ="8"></div>
+
+## 비트마스크, 비트플래그 
+- 1byte는 8개의 true false를 표시할 수 있다 = 8bit
+- 적은 메모리로 다양한 변수를 처리할 수 있는 것이 비트연산의 장점
+
+### 비트 플래그
+  - flag 처리를 위해 비트연산을 사용 
+  
+  > 예제 코드 
+  ``` c++
+    const unsigned char opt0 = 1 << 0; // 00000001
+    const unsigned char opt1 = 1 << 1; // 00000010
+    const unsigned char opt2 = 1 << 2; // 00000100
+    const unsigned char opt2 = 1 << 3; // 00001000
+
+
+    //8개의 아이템 표기를 위해 1byte char를 이용한다
+    unsigned char item_flag = 0;
+
+    //특정 option을 추가할 땐 | 연산
+    item_flag |= opt1;
+    //item_flag = item_flag & opt1;
+
+    //특정 option을 제거할 땐 &와 ~을 이용
+    item_flag &= ~opt3;
+
+    //특정 option를 가지고 있는지 체크할 땐 & 연산 
+    if (item_flag & opt1)
+    {
+        //opt1 자리의 값이 1이면 true를 리턴한다
+    }
+
+    //option 여러개를 동시에 갖게 할 때는 |로 묶는다
+    item_flag |= (opt2 | opt3);
+
+    //|로 파라미터 1개에 여러 옵션을 한꺼번에 적용할 수 있다
+    //ex) openGl에서 glClear()등 옵션 설정해줄때
+
+
+    //복합조건, 특정 option의 유무들을 판별할 때
+    if((item_flag & opt2) && !(item_flag & opt1) )
+    {
+        //option의 상태를 전환할 때는 ^ 연산
+        item_flag ^= opt2;
+        item_flag ^= opt1;
+        //두개를 합치면 item_flag ^= (opt2 | opt1);
+    }
+
+  ```
+
+  ### 비트마스크 
+  - 특정 비트에서 마스크를 이용하여 일정 부분만 추출해내는 것
+  - 특히 16진수로 이루어진 컬러코드에서 (ex #DDA520) rgb값 추출에도 쓴다
+
+> 예제 코드
+```c++ 
+unsigned int pixel_color = 0xDAA520;
+    //0x 를 붙이면 16진수로 표현이 가능하다 
+
+    const unsigned int red_mask = 0xFF0000;
+    const unsigned int green_mask = 0x00FF00;
+    const unsigned int blue_mask = 0x0000FF;
+    //가장 큰 값인 FF를 마스크 값으로 사용 
+
+    cout<< bitset<32>(pixel_color) << endl;
+
+    unsigned char red,green,blue;
+    //컬러코드는 16진수로 앞부터 두개씩 red, green, blue 로 처리한다.
+
+    //blue를 추출하기 
+    blue = pixel_color & blue_mask;
+
+    green = (pixel_color & green_mask) >> 8;
+    //1. green값은 32비트의 중앙쯤 있어서 8비트인 char에 제대로 담기지 않는다
+    //2. >>를 이용해 옆으로 8비트 밀어버리고 char로 출력한다
+
+    red = (pixel_color & red_mask) >> 16;
+    // green, blue 값을 밀어내야 char 에 담기기 때문에 16비트를 오른쪽으로 민다
+
+    /**
+    0xDDA520 => 00000000110110101010010100100000
+      
+    추출 결과: 
+    blue: 00100000  = 32
+    green: 10100101  = 165
+    red: 11011010  = 218
+
+    **/
+```
