@@ -235,7 +235,7 @@
 
 > 예제 코드
 ```c++ 
-unsigned int pixel_color = 0xDAA520;
+    unsigned int pixel_color = 0xDAA520;
     //0x 를 붙이면 16진수로 표현이 가능하다 
 
     const unsigned int red_mask = 0xFF0000;
