@@ -20,7 +20,7 @@ int main()
     unsigned char item_flag = 0;
 
     // no item
-    DisplayItemOnMessage("No item", item_flag);
+    DisplayItemOnMessage("No item", item_flag); 
 
     //item1 on
     item_flag |= opt1;
