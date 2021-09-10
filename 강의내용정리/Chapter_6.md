@@ -92,3 +92,38 @@
       int *const ptr2 = &value;
       // 이 두가지 코드는 동일하다고 볼 수 있다.
        ```  
+
+8. 참조와 const
+     - ``` c++
+
+      //참조변수를 const시키면 literal도 넣을 수 있게 된다!!
+      int value = 5;
+      const int &ref = value;
+      &ref = 3 * 4;
+       ```  
+
+      - 파라미터로 이것을 쓰면 변수가 아닌 literal도 쓸수있어 활용성이 좋아진다.
+
+9. C++ For-each 반복문
+   - ``` c++
+      int fibonachi[] = { 0,1,1,2,3,5,8,13,21,34,55,89};
+
+      //for()내부는 파라미터와 같아서 복사되어 들어간다. 
+      //따라서 number를 변경해도 배열은 변하지 않는다.
+      for(int number : fibonachi)
+         number = 10;
+
+      //레퍼런스로 받는다면 배열의 값을 변경할 수 있다.
+      for(int &number : fibonachi)
+         number = 10;
+
+      //보통 auto로 둬서 편하게 사용한다.
+      for(auto &number : fibonachi)
+         number = 10;
+
+      //배열 내부를 수정하지 못하도록 for-each사용하기
+      for(const auto &number : fibonachi)
+         cout<< number <<" ";
+      ```
+
+   - 단, for-each는 동적할당된 배열에는 사용할 수 없다!!
