@@ -156,25 +156,25 @@
 <div id="5"></div>
 	
 ## 다중 포인터와 동적 다차원 배열 
-	- 이중포인터는 이차원행렬 구현할 때 자주 쓴다.
+- 이중포인터는 이차원행렬 구현할 때 자주 쓴다.
 	
 ---------
 <div id="6"></div>
 	
 ## std::array 
-	- #include <array> 가 필요하다.
-	- std::array<type,size> name 순으로 선언.
-	- .at, .size 처럼 여러 기능을 편리하게 이용가능
-	- .at(num) 은 [num]과 같은 기능이지만 옳지않은 접근에 대해 예외처리를 해준다.
+- #include <array> 가 필요하다.
+- std::array<type,size> name 순으로 선언.
+- .at, .size 처럼 여러 기능을 편리하게 이용가능
+- .at(num) 은 [num]과 같은 기능이지만 옳지않은 접근에 대해 예외처리를 해준다.
 
 	
 ---------
 <div id="7"></div>
 	
 ## std::vector
-	- #include <vector> 가 필요하다.
-	- std::vector<type> name 순으로 *동적 배열*을 선언
-	- .at, .size 처럼 여러 기능을 편리하게 이용가능
-	- .resize 로 동적으로 크기를 변환할 수 있다.
-	- *선언된 영역 밖으로 나갈 때 자동으로 메모리를 반환한다!*
+- #include <vector> 가 필요하다.
+- std::vector<type> name 순으로 *동적 배열*을 선언
+- .at, .size 처럼 여러 기능을 편리하게 이용가능
+- .resize 로 동적으로 크기를 변환할 수 있다.
+- *선언된 영역 밖으로 나갈 때 자동으로 메모리를 반환한다!*
 
