@@ -115,7 +115,6 @@
 
 1. 참조와 const
      - ``` c++
-
       //참조변수를 const시키면 literal도 넣을 수 있게 된다!!
       int value = 5;
       const int &ref = value;
