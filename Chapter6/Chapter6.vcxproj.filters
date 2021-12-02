@@ -15,10 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="voidPointer.cpp">
+    <ClCompile Include="chapter6_18_voidPointer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Pointer.cpp">
+    <ClCompile Include="chapter6_17Pointer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="chapter6_19_doublePointer_dynamicArrays.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="chapter6_20_std-array.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="chapter6_21_std-vector.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
