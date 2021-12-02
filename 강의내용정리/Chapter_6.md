@@ -93,31 +93,34 @@
 <div id="3"></div>
 
 ## 참조변수 Reference Variable
+
 1. 참조변수
      - ``` c++
-      // &ref는 value의 또 다른 이름이라고 보면 된다.
-      // &ref는 반드시 처음에 초기화 되어야 한다.
-      // &ref는 literal로 초기화 할 수 없다. 변수가 들어가야 한다.
-      int value = 5;
-      int &ref = value;
+        int value = 5;
+        int &ref = value;
+        // &ref는 value의 또 다른 이름이라고 보면 된다.
+        // &ref는 반드시 처음에 초기화 되어야 한다.
+        // &ref는 literal로 초기화 할 수 없다. 변수가 들어가야 한다.      
        ```  
        
    - 참조변수를 파라미터로 쓰면 복사되어 넘어가는 메모리도 줄이면서 포인터처럼 쓸 수 있다!!
    - *복잡하게 들어가서 접근하는 변수를 손쉽게 캐싱하는 용도로 자주쓴다!*
-   - ``` c++
+ 
+   - ```c++
       int value = 5;
       int &ref = value;
       int *const ptr2 = &value;
       // 이 두가지 코드는 동일하다고 볼 수 있다.
-       ```  
+      ```  
 
 
 2. 참조와 const
-     - ``` c++ 
-      //참조변수를 const시키면 literal도 넣을 수 있게 된다!!
-      int value = 5;
-      const int &ref = value;
-      &ref = 3 * 4;
+
+     - ```c++ 
+        //참조변수를 const시키면 literal도 넣을 수 있게 된다!!
+        int value = 5;
+        const int &ref = value;
+        &ref = 3 * 4;
        ```  
 
   - 파라미터로 이것을 쓰면 변수가 아닌 literal도 쓸수있어 활용성이 좋아진다.
