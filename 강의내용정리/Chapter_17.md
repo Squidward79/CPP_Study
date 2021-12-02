@@ -106,5 +106,20 @@
 ********
 <div id ="3"></div>
   
-## string의 생성자와 형변환
+## string의 대입,교환,덧붙이기,삽입
+
+1. 덧붙이기
+	- .append(text);
+	- string1.push_back(char); 
+	- += text; string1 + string2 로 연산자처럼 쓰기도 가능
+	- 여러번 체이닝(.~~.~~으로 연결하는것)해서 쓸 수 있다.
+	
+2. 교환
+	- std::swap(string1, string2)
+	- string1과 2를 교환
+	- string1.swap(string2) 처럼 사용도 가능
+	
+3. 삽입
+	- string1.insert(n, text);
+		* n번째 자리에 text를 삽입하라는 의미!
   
